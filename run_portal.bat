@@ -1,1 +1,1 @@
-npm install & ng serve --prod
+npm install & ng serve --prod --open
