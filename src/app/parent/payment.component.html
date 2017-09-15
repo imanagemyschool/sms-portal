@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <!-- Top section to select a child's name -->
+  <div class="row">
+    <div class="col-sm-12"><img src="/assets/thelwallinfantschool-headerimage.png"></div>
+  </div>
+  
+  <div class="row p-3">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <select class="form-control" [(ngModel)]="selectedStudentId"  (ngModelChange)="getStudentFees()">
+          <option *ngFor="let student of students" [ngValue]="student.studentId">{{student.firstName + " " + student.lastName}}</option>
+      </select>
+    </div>
+    <div class="col-md-4"></div>    
+  </div>
+
+  <div class="row p-3" *ngFor="let fee of feeList">
+    <div class="col-md-12">{{fee.feeTypeDescription}} - {{fee.feeAmount}}</div>
+  </div>  
+
+  <!-- Site footer -->
+  <div class="schoolhome-footer-w3l">
+      <p> &copy; 2017 iSchoolManager . All Rights Reserved </p>
+  </div>
+
+</div> <!-- /container -->

@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <!-- Top section to select a child's name -->
+  <div class="row">
+    <div class="col-sm-12"><img src="/assets/thelwallinfantschool-headerimage.png"></div>
+  </div>
+  
+  <div class="row p-3">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <!--
+      <select class="form-control" [(ngModel)]="selectedSchoolClassCode">
+          <option *ngFor="let schoolClass of schoolClasses" [ngValue]="schoolClass.classCode">{{schoolClass.classDescription + " - " + schoolClass.classTeacherName}}</option>
+      </select>
+      -->
+    </div>
+    <div class="col-md-4"></div>    
+  </div>
+  <ag-grid-ng2 #agGrid style="width: 100%; height: 350px;" class="ag-material" [gridOptions]="gridOptions"
+                     enableColResize
+                     enableSorting
+                     enableFilter
+                     rowHeight="50">
+  </ag-grid-ng2>  
+
+</div>

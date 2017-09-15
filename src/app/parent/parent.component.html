@@ -1,0 +1,225 @@
+<template ngbModalContainer></template>
+<div class="container-fluid">
+  <!-- Top section to select a child's name -->
+  <div class="row">
+    <div class="col-sm-12"><img src="/assets/thelwallinfantschool-headerimage.png"></div>
+  </div>
+  
+  <div class="row p-3">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <select class="form-control" [(ngModel)]="selectedStudentId"  (ngModelChange)="getStudentData(null)">
+          <option *ngFor="let student of students" [ngValue]="student.studentId">{{student.firstName + " " + student.lastName}}</option>
+      </select>
+    </div>
+    <div class="col-md-4"></div>    
+  </div>
+
+  <div class="masthead">
+    <nav>
+      <ngb-tabset (tabChange)="getStudentData($event)">
+        <ngb-tab title="Profile" id="profileTab">
+          <template ngbTabContent>
+            <div class="jumbotron">  
+              <div class="form-group row" *ngIf="selectedStudent == null || selectedStudentId == -1">
+                <div class="col-md-4"></div>
+                <div class="col-md-4"><strong>Select a Child</strong></div>
+                <div class="col-md-4"></div>
+              </div>   
+
+              <table class="table table-round-border" *ngIf="selectedStudent != null && selectedStudentId > 0">
+                <tr>
+                  <td class="col-md-4" *ngIf="selectedStudent != null && selectedStudentId > 0">
+                    <div class="form-group row">
+                      <div class="col-md-3"><strong>First Name:</strong></div>
+                      <div class="col-md-9">{{selectedStudent.firstName}}</div>
+                    </div>                        
+                    <div class="form-group row">
+                      <div class="col-md-3"><strong>Middle Name:</strong></div>
+                      <div class="col-md-9">{{selectedStudent.middleName}}</div>
+                    </div>   
+                    <div class="form-group row">
+                      <div class="col-md-3"><strong>Last Name:</strong></div>
+                      <div class="col-md-9">{{selectedStudent.lastName}}</div>
+                    </div>  
+                    <div class="form-group row">
+                      <div class="col-md-3"><strong>Gender:</strong></div>
+                      <div class="col-md-9">{{selectedStudent.gender}}</div>
+                    </div>       
+                    <div class="form-group row">
+                      <div class="col-md-3"><strong>Date of Birth:</strong></div>
+                      <div class="col-md-9">{{selectedStudent.dateOfBirth}}</div>
+                    </div> 
+                    <div class="form-group row">
+                      <div class="col-md-3"><strong>Parent Name:</strong></div>
+                      <div class="col-md-9">{{selectedStudent.parentFullName}}</div>
+                    </div>  
+                    <div class="form-group row">
+                      <div class="col-md-3"><strong>Admission Date:</strong></div>
+                      <div class="col-md-9">{{selectedStudent.schoolAdmissionDate}}</div>
+                    </div>  
+                    <div class="form-group row">
+                      <div class="col-md-3"><strong>Active:</strong></div>
+                      <div class="col-md-9">{{selectedStudent.activeFlag ? "Yes" : "No"}}</div>
+                    </div>                                                                                                    
+                  </td>
+                  <td class="col-md-4" *ngIf="selectedStudentAddress != null && selectedStudent != null && selectedStudentId > 0">
+                    <div class="form-group row">
+                      <div class="col-md-4"><strong>Address1:</strong></div>
+                      <div class="col-md-8">{{selectedStudentAddress.address1}}</div>
+                    </div>  
+                    <div class="form-group row" *ngIf="selectedStudentAddress.address2 != null && selectedStudentAddress.address2.length > 0">
+                      <div class="col-md-4"><strong>Address2:</strong></div>
+                      <div class="col-md-8">{{selectedStudentAddress.address2}}</div>
+                    </div>     
+                    <div class="form-group row">
+                      <div class="col-md-4"><strong>City:</strong></div>
+                      <div class="col-md-8">{{selectedStudentAddress.city}}</div>
+                    </div> 
+                    <div class="form-group row">
+                      <div class="col-md-4"><strong>State:</strong></div>
+                      <div class="col-md-8">{{selectedStudentAddress.stateCode}}</div>
+                    </div>               
+                    <div class="form-group row"  *ngIf="selectedStudentAddress.subCountry != null && selectedStudentAddress.subCountry.length > 0">
+                      <div class="col-md-4"><strong>SubCountry:</strong></div>
+                      <div class="col-md-8">{{selectedStudentAddress.subCountry}}</div>
+                    </div> 
+                    <div class="form-group row">
+                      <div class="col-md-4"><strong>Zip:</strong></div>
+                      <div class="col-md-8">{{selectedStudentAddress.zip}}</div>
+                    </div>                                                      
+                    <div class="form-group row">
+                      <div class="col-md-4"><strong>Country Code:</strong></div>
+                      <div class="col-md-8">{{selectedStudentAddress.countryCode}}</div>
+                    </div>  
+                    <div class="form-group row">
+                      <div class="col-md-4"><strong>Primary Contact:</strong></div>
+                      <div class="col-md-8">{{selectedStudentAddress.primaryContactNumber}}</div>
+                    </div> 
+                    <div class="form-group row">
+                      <div class="col-md-4"><strong>Secondary Contact:</strong></div>
+                      <div class="col-md-8">{{selectedStudentAddress.secondaryContactNumber}}</div>
+                    </div>     
+                    <div class="form-group row">
+                      <div class="col-md-4"><strong>Primary Email:</strong></div>
+                      <div class="col-md-8">{{selectedStudentAddress.primaryEmailAddress}}</div>
+                    </div> 
+                    <div class="form-group row">
+                      <div class="col-md-4"><strong>Secondary Email:</strong></div>
+                      <div class="col-md-8">{{selectedStudentAddress.secondaryEmailAddress}}</div>
+                    </div>                                                                                                                      
+                  </td>
+
+                  <td class="col-md-4">
+                     
+                  </td>                   
+                </tr>
+              </table>
+            </div>
+          </template>
+        </ngb-tab>
+        <ngb-tab title="Grades" id="gradeTab">
+          <template ngbTabContent>
+            <div class="jumbotron">
+              <ag-grid-ng2 #agGrid style="width: 100%; height: 350px;" class="ag-material"
+                     [gridOptions]="gridOptions"
+                     enableColResize
+                     enableSorting
+                     enableFilter
+                     rowHeight="50">
+              </ag-grid-ng2>
+            </div>
+          </template>
+        </ngb-tab>
+        <ngb-tab title="Attendance" id="attendanceTab">
+          <template ngbTabContent>
+            <div class="jumbotron">
+              <div class="form-group row">
+                <div class="col-md-12"><strong>&nbsp;&nbsp;Total Enrolled Days:&nbsp;{{numberOfEnrolledDays}}</strong></div>
+              </div>              
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="col-md-2">Total Present Days</th>
+                    <th class="col-md-2">Total Excused Days</th>
+                    <th class="col-md-2">Total Unexcused Days</th>
+                    <th class="col-md-2">Total Tardy Days</th>
+                    <th class="col-md-2">Total Truancy Days</th>
+                    <th class="col-md-2">Total Suspended Days</th>                    
+                  </tr>                  
+                </thead>  
+                <tbody>
+                  <tr>
+                    <td class="col-md-2">{{numberOfPresentDays}}&nbsp;({{numberOfPresentDaysPercentage}}%)</td>  
+                    <td class="col-md-2">{{numberOfExcusedDays}}</td>
+                    <td class="col-md-2">{{numberOfUnExcusedDays}}</td>
+                    <td class="col-md-2">{{numberOfTardyDays}}</td>
+                    <td class="col-md-2">{{numberOfTruancyDays}}</td>
+                    <td class="col-md-2">{{numberOfSuspendedDays}}</td>
+                  </tr>
+                </tbody>
+              </table>            
+            </div>  
+            <div class="jumbotron">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="col-md-2">Present Dates</th>
+                    <th class="col-md-2">Excused Dates</th>
+                    <th class="col-md-2">Unexcused Dates</th>
+                    <th class="col-md-2">Tardy Dates</th>
+                    <th class="col-md-2">Truancy Dates</th>
+                    <th class="col-md-2">Suspended Dates</th>                    
+                  </tr>                  
+                </thead>  
+                <tbody>
+                  <tr>
+                    <td class="col-md-2" style="overflow: auto;overflow-x: hidden;height:300px">
+                      <div class="form-group row" *ngFor="let presentDate of presentDates">
+                        <div class="col-md-12">{{presentDate | date: 'yMMMMEEEEd'}}</div>
+                      </div>                    
+                    </td>  
+                    <td class="col-md-2" style="overflow: auto;overflow-x: hidden;height:300px">
+                      <div class="form-group row" *ngFor="let excusedDate of excusedDates">
+                        <div class="col-md-12">{{excusedDate | date: 'yMMMMEEEEd'}}</div>
+                      </div>                    
+                    </td>  
+                    <td class="col-md-2" style="overflow: auto;overflow-x: hidden;height:300px">
+                      <div class="form-group row" *ngFor="let unexcusedDate of unexcusedDates">
+                        <div class="col-md-12">{{unexcusedDate | date: 'yMMMMEEEEd'}}</div>
+                      </div>                    
+                    </td>
+                    <td class="col-md-2" style="overflow: auto;overflow-x: hidden;height:300px">
+                      <div class="form-group row" *ngFor="let tardyDate of tardyDates">
+                        <div class="col-md-12">{{tardyDate | date: 'yMMMMEEEEd'}}</div>
+                      </div>                    
+                    </td>
+                    <td class="col-md-2" style="overflow: auto;overflow-x: hidden;height:300px">
+                      <div class="form-group row" *ngFor="let truancyDate of truancyDates">
+                        <div class="col-md-12">{{truancyDate | date: 'yMMMMEEEEd'}}</div>
+                      </div>                    
+                    </td> 
+                    <td class="col-md-2" style="overflow: auto;overflow-x: hidden;height:300px">
+                      <div class="form-group row" *ngFor="let suspendedDate of suspendedDates">
+                        <div class="col-md-12">{{suspendedDate | date: 'yMMMMEEEEd'}}</div>
+                      </div>                    
+                    </td>                                                                                                    
+                  </tr>
+                </tbody>      
+              </table>
+            </div>
+          </template>
+        </ngb-tab>    
+      </ngb-tabset>
+    </nav>
+  </div>
+
+  <!-- Site footer -->
+  <div class="schoolhome-footer-w3l">
+      <p> &copy; 2017 iSchoolManager . All Rights Reserved </p>
+  </div>
+
+</div> <!-- /container -->
+
+
+    
