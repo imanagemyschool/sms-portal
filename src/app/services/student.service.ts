@@ -8,7 +8,7 @@ import { Student, StudentFee, StudentAddress, StudentGrade, StudentCategoryGrade
 @Injectable()
 export class StudentService {
 
-  private baseUrl  = 'http://localhost:9010/sms/v1/api/';  // URL to web api
+  private baseUrl  = 'https://sms.ischoolmanager.com/sms/v1/api/';  // URL to web api
 
   constructor(private http: Http) { }
 

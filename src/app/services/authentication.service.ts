@@ -9,7 +9,7 @@ export class AuthenticationService {
     constructor(private http: Http) { }
 
     login(username: string, password: string, selectedSchoolCode: string, userTypeCode: string) {
-        return this.http.post('http://localhost:9010/sms/v1/api/authenticate', { username: username, password: password, schoolCode: selectedSchoolCode, userTypeCode: userTypeCode})
+        return this.http.post('https://sms.ischoolmanager.com/sms/v1/api/authenticate', { username: username, password: password, schoolCode: selectedSchoolCode, userTypeCode: userTypeCode})
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 console.log("response:" + response.json)

@@ -8,7 +8,7 @@ import { FeeType } from './../models/index';
 @Injectable()
 export class FeeService {
 
-  private baseUrl  = 'http://localhost:9010/sms/v1/api/';  // URL to web api
+  private baseUrl  = 'https://sms.ischoolmanager.com/sms/v1/api/';  // URL to web api
 
   constructor(private http: Http) { }
 

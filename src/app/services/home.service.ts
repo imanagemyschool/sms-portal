@@ -8,7 +8,7 @@ import { User, UserSchool, School} from './../models/index';
 @Injectable()
 export class HomeService {
 
-  private baseUrl  = 'http://localhost:9010/sms/v1/api/';
+  private baseUrl  = 'https://sms.ischoolmanager.com/sms/v1/api/';
   constructor(private http: Http) { }
 
 
