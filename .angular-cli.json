@@ -21,10 +21,23 @@
       "styles": [
         "styles.css",
         "../sms-base.css",
+        "../sms-testschool-styles.css",
+        "../sms-testschool-theme-styles.css",
+        "../OpenSans-Light.css",
+        "../OpenSans-Italic.css",
+        "../OpenSans-Regular.css",        
+        "../OpenSans-SemiBold.css",
+        "../system.css",
+        "../apps.css",
+        "../SchoolwiresMobile.css",
+        "../dashboard.css",
+        "../Grid.css",        
         "../node_modules/ag-grid/dist/styles/ag-grid.css",
         "../node_modules/ag-grid/dist/styles/theme-material.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "libs/jquery.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

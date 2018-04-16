@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>A15C3F5F-D0FA-4B24-A14A-6EAA870FD7D0</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Part-2---End-User" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="SW-Alerts---Global-Control-Styling" transform="translate(-196.000000, -197.000000)" fill="#C23E37">
+            <g id="Icon---Critical" transform="translate(196.000000, 197.000000)">
+                <path d="M30,60 C46.5685425,60 60,46.5685425 60,30 C60,13.4314575 46.5685425,0 30,0 C13.4314575,0 0,13.4314575 0,30 C0,46.5685425 13.4314575,60 30,60 Z M30,58.0645161 C14.5003957,58.0645161 1.93548387,45.4996043 1.93548387,30 C1.93548387,14.5003957 14.5003957,1.93548387 30,1.93548387 C45.4996043,1.93548387 58.0645161,14.5003957 58.0645161,30 C58.0645161,45.4996043 45.4996043,58.0645161 30,58.0645161 Z" id="Oval-5-Copy"></path>
+                <g id="alert_warning-copy" transform="translate(31.500000, 30.500000) scale(1, -1) translate(-31.500000, -30.500000) translate(30.000000, 17.000000)" fill="#C23E37">
+                </g>
+            </g>
+        </g>
+    </g>
+    <g id="Part-2---End-User" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="SW-Alerts---Global-Control-Styling" transform="translate(-196.000000, -197.000000)" fill="#C23E37">
+            <g id="Icon---Critical" transform="translate(196.000000, 197.000000)">
+                <polygon id="Fill-1" points="39.5287097 19 29.9480645 28.5806452 21.0525806 19.6841935 19.6841935 21.0535484 28.5796774 29.9490323 19 39.5296774 20.3683871 40.8980645 29.9480645 31.3183871 39.5287097 40.8980645 40.8970968 39.5296774 31.3164516 29.9490323 40.8970968 20.3693548"></polygon>
+            </g>
+        </g>
+    </g>
+
+</svg>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>9D6D8675-09E8-4A4C-A449-A68274EE3B78</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <circle id="path-1" cx="30" cy="30" r="30"></circle>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="60" height="60" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Part-2---End-User" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="SW-Alerts---Global-Control-Styling" transform="translate(-1168.000000, -198.000000)">
+            <g id="Icon-Info" transform="translate(1168.000000, 198.000000)">
+                <g id="alert_warning-copy" transform="translate(30.500000, 30.500000) scale(1, -1) translate(-30.500000, -30.500000) translate(29.000000, 17.000000)" fill="#2073A1">
+                    <polygon id="Stroke-2" points="0 18.9473684 2 18.9473684 2 0 0 0"></polygon>
+                    <polygon id="Stroke-3" points="0 26.3684211 2.36842105 26.3684211 2.36842105 24 0 24"></polygon>
+                </g>
+                <use id="Oval-5" stroke="#2073A1" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

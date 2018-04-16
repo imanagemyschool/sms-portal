@@ -8,13 +8,11 @@ import { RoleAttribute } from './../models/index';
 @Injectable()
 export class UserService {
 
-  private baseUrl  = 'https://sms.ischoolmanager.com/sms/v1/api/';  // URL to web api
-
   constructor(private http: Http) { }
 
   // API Call to get the list of user's role attributes on the logged in user token
   getUserRoleAttributes(userId: number): Promise<RoleAttribute[]> {
-    return this.http.get(this.baseUrl + 'roleattributes?userId=' + userId, this.getHeaders())
+    return this.http.get(this.getBaseUrl() + '/roleattributes?userId=' + userId, this.getHeaders())
                .toPromise()
                .then(response => response.json().roleAttributes as RoleAttribute[])
                .catch(this.handleError);
@@ -29,6 +27,11 @@ export class UserService {
         return new RequestOptions({ headers: headers });
       }
   }
+
+  private getBaseUrl(): String{
+    if(window.location.href.indexOf('localhost') > -1) return "http://localhost:9007/sms/v1/api"
+    else return 'https://sms.ischoolmanager.com/sms/v1/api'
+  }  
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only

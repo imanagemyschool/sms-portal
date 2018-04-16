@@ -9,25 +9,25 @@ import { User, UserSchool, School} from './../models/index';
 export class HomeService {
 
   private baseUrl  = 'https://sms.ischoolmanager.com/sms/v1/api/';
-  constructor(private http: Http) { }
-
-
+  constructor(private http: Http) {}
+  
   getUser(emailUsername): Promise<User> {
-    return this.http.get(this.baseUrl + 'user?username=' + emailUsername, this.getHeaders())
+
+    return this.http.get(this.getBaseUrl() + '/user?username=' + emailUsername, this.getHeaders())
                .toPromise()
                .then(response => response.json().user as User)
                .catch(this.handleError);
   }
 
   getUserSchool(userId: number): Promise<UserSchool[]> {
-    return this.http.get(this.baseUrl + 'userschool?userId='+userId, this.getHeaders())
+    return this.http.get(this.getBaseUrl() + '/userschool?userId='+userId, this.getHeaders())
                .toPromise()
                .then(response => response.json().userSchoolInfoList as UserSchool[])
                .catch(this.handleError);
   }  
  
   getSchool(schoolCode: string): Promise<School> {
-    return this.http.get(this.baseUrl + 'school?schoolCode='+schoolCode, this.getHeaders())
+    return this.http.get(this.getBaseUrl() + '/school?schoolCode='+schoolCode, this.getHeaders())
                .toPromise()
                .then(response => response.json().school as School)
                .catch(this.handleError);
@@ -39,6 +39,11 @@ export class HomeService {
       let headers = new Headers({ 'Authorization': 'SMS-token ' + currentUser.token });
         return new RequestOptions({ headers: headers });
       }
+  }
+
+  private getBaseUrl(): String{
+    if(window.location.href.indexOf('localhost') > -1) return "http://localhost:9007/sms/v1/api"
+    else return 'https://sms.ischoolmanager.com/sms/v1/api'
   }
 
   private handleError(error: any): Promise<any> {

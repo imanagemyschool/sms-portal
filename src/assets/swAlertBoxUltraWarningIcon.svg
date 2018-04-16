@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="59px" height="53px" viewBox="0 0 59 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>69A71648-F2A9-4F6E-8752-9C4EFF0D49E9</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Part-2---End-User" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="SW-Alerts---Global-Control-Styling" transform="translate(-678.000000, -198.000000)" fill="#FF6600">
+            <g id="Icon-Warning" transform="translate(678.000000, 198.000000)">
+                <g id="alert_warning-copy" transform="translate(30.50000, 30.500000) scale(1, 1) translate(-31.500000, -30.500000) translate(30.000000, 17.000000)" fill="#FF6600">
+                    <polygon id="Stroke-2" points="0 18.9473684 2 18.9473684 2 0 0 0"></polygon>
+                    <polygon id="Stroke-3" points="0 26.3684211 2.36842105 26.3684211 2.36842105 24 0 24"></polygon>
+                </g>
+                <path d="M29.5296007,2.5723231 L2.78961282,49.851722 C2.46179773,50.4313371 2.40957271,50.3418941 3.08460749,50.3418941 L56.4233368,50.3418941 C57.1060893,50.3418941 57.0498984,50.4379708 56.7183315,49.851722 L29.9783436,2.5723231 C29.8989538,2.43195271 29.8222394,2.32418108 29.7538316,2.24696031 C29.6856381,2.32412971 29.6090403,2.43186464 29.5296007,2.5723231 Z M27.7887409,1.58773843 C28.8741081,-0.331316751 30.6388024,-0.322535828 31.7192035,1.58773843 L58.4591913,48.8671373 C59.5445586,50.7861925 58.6383291,52.3418941 56.4233368,52.3418941 L3.08460749,52.3418941 C0.87486881,52.3418941 -0.0316480479,50.7774116 1.04875297,48.8671373 L27.7887409,1.58773843 Z" id="Triangle"></path>
+            </g>
+        </g>
+    </g>
+</svg>

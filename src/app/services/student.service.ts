@@ -8,13 +8,11 @@ import { Student, StudentFee, StudentAddress, StudentGrade, StudentCategoryGrade
 @Injectable()
 export class StudentService {
 
-  private baseUrl  = 'https://sms.ischoolmanager.com/sms/v1/api/';  // URL to web api
-
   constructor(private http: Http) { }
 
   // API Call to get the list of student records based on the logged in userId
   getStudents(userId: number): Promise<Student[]> {
-    return this.http.get(this.baseUrl + 'students?userId=' + userId, this.getHeaders())
+    return this.http.get(this.getBaseUrl() + '/students?userId=' + userId, this.getHeaders())
                .toPromise()
                .then(response => response.json().students as Student[])
                .catch(this.handleError);
@@ -22,7 +20,7 @@ export class StudentService {
 
   // API Call to get the Student Address for a given student Id. 
   getStudentAddress(studentId: number): Promise<StudentAddress[]> {
-    return this.http.get(this.baseUrl + 'studentaddress?studentId=' + studentId, this.getHeaders())
+    return this.http.get(this.getBaseUrl() + '/studentaddress?studentId=' + studentId, this.getHeaders())
                .toPromise()
                .then(response => response.json().studentAddress as StudentAddress[])
                .catch(this.handleError);
@@ -30,7 +28,7 @@ export class StudentService {
 
   // API Call to get the Student Grades for a given student Id. 
   getStudentGrades(studentId: number): Promise<StudentGrade[]> {
-    return this.http.get(this.baseUrl + 'studentgrade?studentId=' + studentId, this.getHeaders())
+    return this.http.get(this.getBaseUrl() + '/studentgrade?studentId=' + studentId, this.getHeaders())
                .toPromise()
                .then(response => response.json().studentGrades as StudentGrade[])
                .catch(this.handleError);
@@ -38,7 +36,7 @@ export class StudentService {
 
   // API Call to get the StudentCategory Grades for a given student Id. 
   getStudentCategoryGrades(studentId: number, termCode: string, subjectCode: string): Promise<StudentCategoryGrade[]> {
-    return this.http.get(this.baseUrl + 'studentcategorygrade?studentId=' + studentId + '&termCode=' + termCode + '&subjectCode='+ subjectCode, this.getHeaders())
+    return this.http.get(this.getBaseUrl() + '/studentcategorygrade?studentId=' + studentId + '&termCode=' + termCode + '&subjectCode='+ subjectCode, this.getHeaders())
                .toPromise()
                .then(response => response.json().studentCategoryGrades as StudentCategoryGrade[])
                .catch(this.handleError);
@@ -46,7 +44,7 @@ export class StudentService {
 
   // API Call to get all the Term records 
   getTerms(): Promise<Term[]> {
-    return this.http.get(this.baseUrl + 'term', this.getHeaders())
+    return this.http.get(this.getBaseUrl() + '/term', this.getHeaders())
                .toPromise()
                .then(response => response.json().terms as Term[])
                .catch(this.handleError);
@@ -54,7 +52,7 @@ export class StudentService {
 
   // API Call to get all the Subject records 
   getSubjects(): Promise<Subject[]> {
-    return this.http.get(this.baseUrl + 'subject', this.getHeaders())
+    return this.http.get(this.getBaseUrl() + '/subject', this.getHeaders())
                .toPromise()
                .then(response => response.json().subjects as Subject[])
                .catch(this.handleError);
@@ -62,14 +60,14 @@ export class StudentService {
 
   // API Call to get all the Subject Category records 
   getSubjectCategories(): Promise<SubjectCategory[]> {
-    return this.http.get(this.baseUrl + 'subjectcategory', this.getHeaders())
+    return this.http.get(this.getBaseUrl() + '/subjectcategory', this.getHeaders())
                .toPromise()
                .then(response => response.json().subjectCategories as SubjectCategory[])
                .catch(this.handleError);
   }     
 
   getStudentAttendances(studentId: number): Promise<StudentAttendance[]> {
-    return this.http.get(this.baseUrl + 'studentattendance?studentId=' + studentId, this.getHeaders())
+    return this.http.get(this.getBaseUrl() + '/studentattendance?studentId=' + studentId, this.getHeaders())
                .toPromise()
                .then(response => response.json().studentAttendances as StudentAttendance[])
                .catch(this.handleError);
@@ -77,7 +75,7 @@ export class StudentService {
 
 
   getStudentFees(studentId: number): Promise<StudentFee[]> {
-    return this.http.get(this.baseUrl + 'studentfee?studentId=' + studentId, this.getHeaders())
+    return this.http.get(this.getBaseUrl() + '/studentfee?studentId=' + studentId, this.getHeaders())
                .toPromise()
                .then(response => response.json().studentFees as StudentFee[])
                .catch(this.handleError);
@@ -90,6 +88,11 @@ export class StudentService {
       let headers = new Headers({ 'Authorization': 'SMS-TOKEN ' + currentUser.token });
         return new RequestOptions({ headers: headers });
       }
+  }
+
+  private getBaseUrl(): String{
+    if(window.location.href.indexOf('localhost') > -1) return "http://localhost:9007/sms/v1/api"
+    else return 'https://sms.ischoolmanager.com/sms/v1/api'
   }
 
   private handleError(error: any): Promise<any> {

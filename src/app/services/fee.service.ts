@@ -8,13 +8,11 @@ import { FeeType } from './../models/index';
 @Injectable()
 export class FeeService {
 
-  private baseUrl  = 'https://sms.ischoolmanager.com/sms/v1/api/';  // URL to web api
-
   constructor(private http: Http) { }
 
   // API Call to get the list of fee type records
   getFeeTypes(feeTypeCode: string): Promise<FeeType> {
-    return this.http.get(this.baseUrl + 'feetype?feeTypeCode=' + feeTypeCode, this.getHeaders())
+    return this.http.get(this.getBaseUrl() + '/feetype?feeTypeCode=' + feeTypeCode, this.getHeaders())
                .toPromise()
                .then(response => response.json().feeType as FeeType)
                .catch(this.handleError);
@@ -27,6 +25,11 @@ export class FeeService {
       let headers = new Headers({ 'Authorization': 'SMS-TOKEN ' + currentUser.token });
         return new RequestOptions({ headers: headers });
       }
+  }
+
+  private getBaseUrl(): String{
+    if(window.location.href.indexOf('localhost') > -1) return "http://localhost:9007/sms/v1/api"
+    else return 'https://sms.ischoolmanager.com/sms/v1/api'
   }
 
   private handleError(error: any): Promise<any> {

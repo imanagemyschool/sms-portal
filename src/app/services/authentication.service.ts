@@ -7,9 +7,9 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class AuthenticationService {
     constructor(private http: Http) { }
-
+    
     login(username: string, password: string, selectedSchoolCode: string, userTypeCode: string) {
-        return this.http.post('https://sms.ischoolmanager.com/sms/v1/api/authenticate', { username: username, password: password, schoolCode: selectedSchoolCode, userTypeCode: userTypeCode})
+        return this.http.post(this.getBaseUrl() + '/authenticate', { username: username, password: password, schoolCode: selectedSchoolCode, userTypeCode: userTypeCode})
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 console.log("response:" + response.json)
@@ -21,6 +21,11 @@ export class AuthenticationService {
                 }
 
             });
+    }
+
+    private getBaseUrl(): String{
+        if(window.location.href.indexOf('localhost') > -1) return "http://localhost:9007/sms/v1/api"
+        else return 'https://sms.ischoolmanager.com/sms/v1/api'
     }
 
     logout() {
