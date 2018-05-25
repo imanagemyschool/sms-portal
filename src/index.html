@@ -20,6 +20,141 @@
     <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
     
+    <script type="text/javascript">
+      $(document).ready(function() {
+          console.log("Calling channel..")
+          channelHoverIE();
+          channelTouch();
+          closeMenuByPressingKey();
+      });
+  
+      function channelTouch() {
+          // this will change the dropdown behavior when it is touched vs clicked.
+          // channels will be clickable on second click. first click simply opens the menu.
+          $('#channel-navigation > .sw-channel-item > a').on({
+              'touchstart': function (e) {
+                  
+                  // see if has menu
+                  if ($(this).siblings('ul.sw-channel-dropdown li').length > 0) {
+                      var button = $(this);
+  
+                      // add href as property if not already set
+                      // then remove href attribute
+                      if (!button.prop('linkHref')) {
+                          button.prop('linkHref', button.attr('href'));
+                          button.removeAttr('href');
+                      }
+  
+                      // check to see if menu is already open
+                      if ($(this).siblings('ul.sw-channel-dropdown').is(':visible')) {
+                          // if open go to link
+                          window.location.href = button.prop('linkHref');
+                      } 
+  
+                  } 
+              }
+          });
+      }
+  
+  
+      
+      function channelHoverIE(){
+      // set z-index for IE7
+      var parentZindex = $('#channel-navigation').parents('div:first').css('z-index');
+      var zindex = (parentZindex > 0 ? parentZindex : 8000);
+      $(".sw-channel-item").each(function(ind) {
+        $(this).css('z-index', zindex - ind);
+        zindex --;
+      });
+        $(".sw-channel-item").hover(function(){
+            var subList = $(this).children('ul');
+            if ($.trim(subList.html()) !== "") {
+                subList.show();
+                subList.attr("aria-hidden", "false").attr("aria-expanded", "true");
+          }
+          $(this).addClass("hover");
+        }, function() {
+            $(".sw-channel-dropdown").hide();
+            $(this).removeClass("hover");
+            var subList = $(this).children('ul');
+            if ($.trim(subList.html()) !== "") {
+                subList.attr("aria-hidden", "true").attr("aria-expanded", "false");
+            }
+        });
+      }
+  
+      function closeMenuByPressingKey() {
+          $(".sw-channel-item").each(function(ind) {
+              $(this).keyup(function (event) {
+                  if (event.keyCode == 27) { // ESC
+                      $(".sw-channel-dropdown").hide();
+                      $(this).removeClass("hover");
+                      var subList = $(this).children('ul');
+                      if ($.trim(subList.html()) !== "") {
+                          subList.attr("aria-hidden", "true").attr("aria-expanded", "false");
+                      }
+                  }
+                  if (event.keyCode == 13 || event.keyCode == 32) { //enter or space
+                      $(this).find('a').get(0).click();
+                  }
+              }); 
+          });
+  
+          $(".sw-channel-item a").each(function (ind) {
+              $(this).parents('.sw-channel-item').keydown(function (e) {
+                  if (e.keyCode == 9) { // TAB
+                      $(".sw-channel-dropdown").hide();
+                      $(this).removeClass("hover");
+                      var subList = $(this).children('ul');
+                      if ($.trim(subList.html()) !== "") {
+                          subList.attr("aria-hidden", "true").attr("aria-expanded", "false");
+                      }
+                  }
+              });
+          });
+  
+          $(".sw-channel-dropdown li").each(function(ind) {
+              $(this).keydown(function (event) {
+                  if (event.keyCode == 9) { // TAB
+                      $(".sw-channel-dropdown").hide();
+                      var parentMenuItem = $(this).parent().closest('li');
+                      parentMenuItem.removeClass("hover");
+                      var subList = parentMenuItem.children('ul');
+                      if ($.trim(subList.html()) !== "") {
+                          subList.attr("aria-hidden", "true").attr("aria-expanded", "false");
+                      }
+                      parentMenuItem.next().find('a:first').focus();
+                      event.preventDefault();
+                      event.stopPropagation();
+                  }
+  
+                  if (event.keyCode == 37 || // left arrow
+                      event.keyCode == 39) { // right arrow
+                      $(".sw-channel-dropdown").hide();
+                      var parentMenuItem = $(this).parent().closest('li');
+                      parentMenuItem.removeClass("hover");
+                      var subList = parentMenuItem.children('ul');
+                      if ($.trim(subList.html()) !== "") {
+                          subList.attr("aria-hidden", "true").attr("aria-expanded", "false");
+                      }
+                      if (event.keyCode == 37) {
+                          parentMenuItem.prev().find('a:first').focus();
+                      } else {
+                          parentMenuItem.next().find('a:first').focus();
+                      }
+                      event.preventDefault();
+                      event.stopPropagation();
+                  }
+              });
+          });
+      }
+  
+  </script>
+  
+
+
+
+
   </body>
 
 </html>

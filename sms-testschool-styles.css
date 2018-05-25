@@ -1962,9 +1962,12 @@
   /* GroupEnd */
    
   /* GroupBegin Channel Bar Styles */
+
+	/*
   #sw-channel-list-container {
 	width: auto;
-  }
+	}
+	
   ul.sw-channel-list li.sw-channel-item {
 	height: 60px;
 	margin: 0;
@@ -1973,7 +1976,8 @@
 	-o-transition: all 0.25s;
 	-ms-transition: all 0.25s;
 	transition: all 0.25s;
-  }
+	}
+	
   ul.sw-channel-list li.sw-channel-item:after {
 	content: "";
 	width: 1px;
@@ -1986,6 +1990,8 @@
   ul.sw-channel-list li.sw-channel-item:last-child:after {
 	display: none;
   }
+  
+*/  
   li.sw-channel-item.hover, li.sw-channel-item.active {
 	background: #F7941E;
   }
@@ -2010,9 +2016,11 @@
   li.sw-channel-item > a span {
 	padding: 19px 0 19px 22px;
   }
+
   /* GroupEnd */ 
   
   /* GroupBegin Channel Bar Dropdown Styles */
+ /*
   ul.sw-channel-dropdown {
 	width: auto;
 	top: 60px;
@@ -2021,7 +2029,9 @@
 	border: none;
 	-webkit-box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.2);
 	box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.2);
-  }
+	}
+
+ 
   li.sw-channel-item.edge ul.sw-channel-dropdown {
 	left: auto;
 	right: 0;
@@ -2034,10 +2044,12 @@
 	-o-transition: all 0.25s;
 	-ms-transition: all 0.25s;
 	transition: all 0.25s;
-  }
+	}
+		*/
   ul.sw-channel-dropdown li:hover {
 	background: #F7941E;
-  }
+	}
+	/*
   ul.sw-channel-dropdown li a {
 	width: 320px;
 	color: #4d4c4d;
@@ -2050,7 +2062,8 @@
 	-o-transition: all 0.25s;
 	-ms-transition: all 0.25s;
 	transition: all 0.25s;
-  }
+	}
+	
   ul.sw-channel-dropdown li:last-child a {
 	border: none;
   }
@@ -2060,12 +2073,7 @@
   ul.sw-channel-dropdown li:hover a {
 	border-bottom: 1px solid #F7941E;
   }
-  .text-hover-color-white ul.sw-channel-dropdown li a:hover {
-	color: #fff;
-  }
-  .text-color-grey ul.sw-channel-dropdown li a:hover {
-	color: #4d4c4d;
-  }
+
   ul.sw-channel-dropdown li.sw-channel-more-li, ul.sw-channel-dropdown li.sw-channel-more-li a {
 	-webkit-transition: none;
 	-moz-transition: none;
@@ -2084,7 +2092,17 @@
   }
   ul.sw-channel-dropdown li.sw-channel-more-li a, .ul.sw-channel-dropdown li:last-child a {
 	border: none;
+	}
+	*/
+
+  .text-hover-color-white ul.sw-channel-dropdown li a:hover {
+	color: #fff;
   }
+  .text-color-grey ul.sw-channel-dropdown li a:hover {
+	color: #4d4c4d;
+  }  
+
+  
   /* GroupEnd */ 
    
   /* GroupBegin EditorStyles */
@@ -2423,10 +2441,12 @@
   }
   /* GroupEnd */ 
    
-  /* GroupBegin Channel Bar Styles */
+	/* GroupBegin Channel Bar Styles */
+	/*
   #sw-channel-list-container {
 	display: none;
-  }
+	}
+	*/
   /* GroupEnd */} /* MediaEnd *//* MediaBegin 640+ */ @media (max-width: 767px) {/* GroupBegin Mystart */
   #sw-mystart-mypasskey {
 	top: 10px;

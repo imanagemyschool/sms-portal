@@ -227,10 +227,7 @@ color:#000 !important;
 	text-align:left;
 	text-transform:uppercase;
 }
-.navigation{
-	width:70%;
-	float:right;
-}
+
 .navbar {
 	min-height: 40px;
 }
@@ -2236,10 +2233,12 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 		width: 50%;
 		float: left;
 	}
+	/*
 	.navigation {
 		width: 50%;
 		float: right;
 	}
+	*/
 	.banner {
 		min-height: 260px;
 	}

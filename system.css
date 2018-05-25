@@ -540,11 +540,13 @@ div.ui-widget.app.navigation li {
         background: none;
     }
 
+    /*
     div.ui-widget.app.navigation li.expandable {
     }
 
     div.ui-widget.app.navigation li.collapsible {
-    }
+     }
+     */
 
     div.ui-widget.app.navigation li div.bullet {
         background: url('/assets/bullet-item.png') no-repeat -5px -7px;
@@ -566,7 +568,7 @@ div.ui-widget.app.navigation li {
 
 /* WIDGETS */
 div.ui-widget.app {
-    margin: 0px;
+    margin: 20px;
     padding: 0px;
     border: 0px solid #CCC;
 }

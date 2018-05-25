@@ -30,7 +30,8 @@
     "angular-in-memory-web-api": "~0.2.0",
     "bootstrap": "^3.3.7",
     "reflect-metadata": "^0.1.8",
-    "systemjs": "0.19.39"
+    "systemjs": "0.19.39",
+    "jquery": "^2.1.4"
   },
   "devDependencies": {
     "@angular/cli": "1.4.2",
