@@ -1963,12 +1963,14 @@
    
   /* GroupBegin Channel Bar Styles */
 
-	/*
+	
   #sw-channel-list-container {
 	width: auto;
 	}
 	
+
   ul.sw-channel-list li.sw-channel-item {
+		width:auto;
 	height: 60px;
 	margin: 0;
 	-webkit-transition: all 0.25s;
@@ -1991,7 +1993,7 @@
 	display: none;
   }
   
-*/  
+ 
   li.sw-channel-item.hover, li.sw-channel-item.active {
 	background: #F7941E;
   }
@@ -2020,24 +2022,39 @@
   /* GroupEnd */ 
   
   /* GroupBegin Channel Bar Dropdown Styles */
- /*
+ 
   ul.sw-channel-dropdown {
-	width: auto;
-	top: 60px;
-	padding: 15px 0;
-	background: #fff;
-	border: none;
-	-webkit-box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.2);
-	box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.2);
+		width: auto;
+		margin:0px;
+		border:0px;
+		position: absolute;
+		display: none;
+		list-style: none;
+		left:0px;
+		font-size:12px;
+		border:1px solid #CCC;
+		z-index:7001;
+		background:#F3F3F3;
+		font-weight:normal;		
+	  top: 60px;
+    -webkit-box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.2);
+		box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.2);
 	}
 
  
   li.sw-channel-item.edge ul.sw-channel-dropdown {
 	left: auto;
 	right: 0;
-  }
+	}
+
+	ul.sw-channel-dropdown li {
+		padding: 10 23px;
+	}
+
+	/*
   ul.sw-channel-dropdown li {
 	width: auto;
+	height: auto;
 	padding: 0 23px;
 	-webkit-transition: all 0.25s;
 	-moz-transition: all 0.25s;
@@ -2045,17 +2062,20 @@
 	-ms-transition: all 0.25s;
 	transition: all 0.25s;
 	}
-		*/
+	*/
+
   ul.sw-channel-dropdown li:hover {
 	background: #F7941E;
 	}
-	/*
+
+
   ul.sw-channel-dropdown li a {
-	width: 320px;
+	width: auto;
 	color: #4d4c4d;
 	font-size: 16px;
-	padding: 14px 0;
+	padding: 10 23px;
 	margin: 0 0 -1px 0;
+	height: auto;
 	border-bottom: 1px solid #C6C6C4;
 	-webkit-transition: all 0.25s;
 	-moz-transition: all 0.25s;
@@ -2063,6 +2083,8 @@
 	-ms-transition: all 0.25s;
 	transition: all 0.25s;
 	}
+	
+	
 	
   ul.sw-channel-dropdown li:last-child a {
 	border: none;
@@ -2093,7 +2115,7 @@
   ul.sw-channel-dropdown li.sw-channel-more-li a, .ul.sw-channel-dropdown li:last-child a {
 	border: none;
 	}
-	*/
+
 
   .text-hover-color-white ul.sw-channel-dropdown li a:hover {
 	color: #fff;

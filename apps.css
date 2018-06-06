@@ -576,6 +576,7 @@ li.sw-channel-item.active > a {
 /* GroupEnd */
 
 /* GroupBegin Channels-Dropdown */
+/*
 ul.sw-channel-dropdown {
 	margin:0px;
 	padding: 0px;
@@ -587,7 +588,7 @@ ul.sw-channel-dropdown {
 	left:0px;
 	font-size:12px;
 	border:1px solid #CCC;
-	width:200px;
+	width:180px;
 	z-index:7001;
 	background:#F3F3F3;
 	font-weight:normal;
@@ -597,7 +598,7 @@ ul.sw-channel-dropdown {
 	    display: none !important;
     }
 
-	/*
+
 ul.sw-channel-dropdown li {
 	margin:0px;
 	padding:0px;
@@ -608,18 +609,18 @@ ul.sw-channel-dropdown li {
 	height:auto;
 	white-space:pre-wrap;
 }
-*/
+
 
     ul.sw-channel-dropdown li.hidden-section {
         display: none !important;
     }
 
-
+*/
 ul.sw-channel-dropdown li a {
 	color:#666;
 	text-decoration:none;
 	background:none;
-	width:200px;
+	width:320px;
 	padding: 7px 10px;
 	display:block;
 }
@@ -636,6 +637,7 @@ ul.sw-channel-dropdown li a:hover {
     background-repeat: no-repeat;
     background-position: top right;
 }
+
 ul.sw-channel-dropdown li.sw-channel-more-li a:hover {
     background-color: #333333;
     background-image: url("/assets/sw-channel-more-chevron.png");
@@ -643,6 +645,7 @@ ul.sw-channel-dropdown li.sw-channel-more-li a:hover {
     background-position: top right;
 }
 */
+
 .sw-channel-more-span {
     color: #FFFFFF;
 }
