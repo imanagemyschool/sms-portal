@@ -536,7 +536,7 @@
   .gb.footer h2{
 	color: #fff;
 	font: 500 24px "News Cycle", Arial, sans-serif;
-	margin: 0 0 8px 0;
+	margin: 0 270 8px 0;
 	padding: 0;
   }
   .gb.footer p {
@@ -661,7 +661,7 @@
   }
   .global-icon {
 	display: block;
-	max-height: 72px;
+	max-height: 172px;
 	overflow: hidden;
 	float: left;
 	text-align: center;
